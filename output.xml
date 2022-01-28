@@ -1,24 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.7.5 on win32)" generated="20220121 11:07:47.062" rpa="false" schemaversion="2">
-<suite id="s1" name="Robot Interactive Console" source="c:\Users\E1255593\.vscode\extensions\robocorp.robotframework-lsp-0.35.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
-<test id="s1-t1" name="Default Task/Test">
-<kw name="Interpreter Main Loop" library="MainLoop">
-<status status="PASS" starttime="20220121 11:07:47.117" endtime="20220121 11:11:33.557"/>
+<robot generator="Robot 4.1.3 (Python 3.7.5 on win32)" generated="20220128 14:27:51.670" rpa="true" schemaversion="2">
+<suite id="s1" name="Tasks" source="w:\SHARE\Brenden\RoboCorp Training\My-rsb-robot-Level 2\Build A Robot Level II\tasks.robot">
+<test id="s1-t1" name="Orders robots from RobotSpareBin Industries Inc.">
+<kw name="Open the robot order website">
+<kw name="Get Secret" library="RPA.Robocloud.Secrets">
+<var>${Secert_url}</var>
+<arg>URL</arg>
+<doc>Read a secret from the configured source, e.g. Robocorp Vault,
+and return it as a ``Secret`` object.</doc>
+<msg timestamp="20220128 14:27:53.960" level="INFO">Protecting keyword: RPA.Robocloud.Secrets.Get Secret</msg>
+<msg timestamp="20220128 14:27:54.689" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220128 14:27:53.960" endtime="20220128 14:27:54.688"/>
 </kw>
-<status status="PASS" starttime="20220121 11:07:47.116" endtime="20220121 11:11:33.558"/>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>${Secert_url}[url_website]</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20220128 14:27:54.689" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20220128 14:27:54.704" level="INFO">Created download root directory: C:\Users\E1255593\AppData\Local\robocorp\webdrivers</msg>
+<msg timestamp="20220128 14:27:54.705" level="INFO">Created symlink directory: C:\Users\E1255593\AppData\Local\robocorp\webdrivers</msg>
+<msg timestamp="20220128 14:27:54.705" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20220128 14:27:56.016" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20220128 14:27:56.016" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20220128 14:27:56.016" level="INFO">Opening url 'https://robotsparebinindustries.com/#/robot-order'</msg>
+<status status="PASS" starttime="20220128 14:27:54.689" endtime="20220128 14:27:57.724"/>
+</kw>
+<status status="PASS" starttime="20220128 14:27:53.959" endtime="20220128 14:27:57.724"/>
+</kw>
+<kw name="Give URL">
+<var>${URL_Download}</var>
+<kw name="Add heading" library="RPA.Dialogs">
+<arg>Insert URL for CSV Download</arg>
+<doc>Add a centered heading text element</doc>
+<status status="PASS" starttime="20220128 14:27:57.725" endtime="20220128 14:27:57.725"/>
+</kw>
+<kw name="Add text input" library="RPA.Dialogs">
+<arg>URL</arg>
+<arg>label=CSV FIle</arg>
+<tag>input</tag>
+<doc>Add a text input element</doc>
+<status status="PASS" starttime="20220128 14:27:57.725" endtime="20220128 14:27:57.725"/>
+</kw>
+<kw name="Run dialog" library="RPA.Dialogs">
+<var>${result}</var>
+<tag>dialog</tag>
+<doc>Create a dialog from all the defined elements and block
+until the user has handled it.</doc>
+<msg timestamp="20220128 14:27:57.726" level="INFO">Protecting keyword: RPA.Dialogs.Run dialog</msg>
+<msg timestamp="20220128 14:28:07.467" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="FAIL" starttime="20220128 14:27:57.726" endtime="20220128 14:28:07.467"/>
+</kw>
+<status status="FAIL" starttime="20220128 14:27:57.724" endtime="20220128 14:28:07.468"/>
+</kw>
+<kw name="Download CSV File">
+<arg>${URL_Download}</arg>
+<status status="NOT RUN" starttime="20220128 14:28:07.468" endtime="20220128 14:28:07.468"/>
+</kw>
+<kw name="Create Directory for ZIP Folder">
+<status status="NOT RUN" starttime="20220128 14:28:07.469" endtime="20220128 14:28:07.469"/>
+</kw>
+<kw name="Fill the form using the data from the csv file">
+<status status="NOT RUN" starttime="20220128 14:28:07.469" endtime="20220128 14:28:07.469"/>
+</kw>
+<status status="FAIL" starttime="20220128 14:27:53.958" endtime="20220128 14:28:07.469">Aborted by user</status>
 </test>
-<status status="PASS" starttime="20220121 11:07:47.066" endtime="20220121 11:11:33.559"/>
+<doc>Orders robots from RobotSpareBin Industries Inc.
+Saves the order HTML receipt as a PDF file.
+Saves the screenshot of the ordered robot.
+Embeds the screenshot of the robot to the PDF receipt.
+Creates ZIP archive of the receipts and the images.</doc>
+<status status="FAIL" starttime="20220128 14:27:51.672" endtime="20220128 14:28:07.470"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20220128 14:27:53.950" level="WARN">This is a deprecated import that will be removed in favor of RPA.Robocorp.Vault</msg>
 </errors>
 </robot>
